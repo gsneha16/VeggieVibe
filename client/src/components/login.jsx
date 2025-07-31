@@ -23,6 +23,7 @@ const signIn = () => {
 
   const onSubmit = async (data) => {
     setloginInfo(data);
+    console.log(data)
     try {
       const url = "http://localhost:8000/auth/login";
       const response = await fetch(url, {
@@ -85,13 +86,13 @@ const signIn = () => {
 
           <div className="flex gap-3 items-center">
             <label htmlFor="username" className="w-28">
-              Username<span className="text-red-600">*</span>
+              Email<span className="text-red-600">*</span>
             </label>
             <input
-              placeholder="Enter Username"
-              type="name"
+              placeholder="Enter Email"
+              type="email"
               className="p-0.5 border-2 w-full bg-transparent border-none outline-none"
-              {...register("username", { required: true })}
+              {...register("email", { required: true })}
             />
           </div>
           <div className="flex gap-3 items-center ">

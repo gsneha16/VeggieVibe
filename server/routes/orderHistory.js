@@ -1,8 +1,8 @@
-const ensureAuthenticated = require("../middlewares/auth");
 const userModel = require("../models/user");
 const router = require("express").Router();
+const ensureAuthenticated = require("../middlewares/auth")
 
-router.post("/", ensureAuthenticated, async (req, res) => {
+router.post("/",ensureAuthenticated, async (req, res) => {
   try {
     const username = req.user.username;
     const user = await userModel.findOne({ username });

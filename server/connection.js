@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const mongo_URL = process.env.MONGO_URL
-console.log(mongo_URL)
 
 mongoose.connect(mongo_URL)
     .then(()=>{

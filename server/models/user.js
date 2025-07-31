@@ -18,8 +18,6 @@ const orderSchema = new mongoose.Schema({
     default: 1,
   },
   totalAmount: Number,
-
-  // _id: false,
 });
 
 const orderHistorySchema = new mongoose.Schema({
@@ -38,10 +36,10 @@ const WishlistSchema = new mongoose.Schema({
 });
 
 const UserSchema = new mongoose.Schema({
-  username: String,
-  email: String,
-  password: String,
-  contact: String,
+  username: { type: String, require: true },
+  email: { type: String, unique: true },
+  password: { type: String, require: true },
+  contact: { type: String, require: true },
   profileImg: {
     data: Buffer,
     contentType: String,

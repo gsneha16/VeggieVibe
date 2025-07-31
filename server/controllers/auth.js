@@ -33,9 +33,9 @@ const signup = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const { username,contact, password } = req.body;
-    const existingUser = await userModel.findOne({ contact});
-    const errMsg = "Auth failed username or password is wrong";
+    const { email, contact, password } = req.body;
+    const existingUser = await userModel.findOne({ email});
+    const errMsg = "Auth failed! Email or password is wrong";
 
     if (!existingUser) {
       return res.status(403).json({
@@ -43,7 +43,7 @@ const login = async (req, res) => {
         success: false,
       });
     }
-    const isPasswordValid = await bcrypt.compare(
+    const isPasswordValid = bcrypt.compare(
       password,
       existingUser.password
     );

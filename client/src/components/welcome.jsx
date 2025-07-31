@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const welcome = () => {
   return (
-    <div className=" mt-[60px] bg-[url(/cover3.png)] h-[91vh] http://localhost:5173/storebg-cover bg-center flex items-center">
+    <div className=" mt-[60px] bg-[url(/cover.png)] h-[91vh] http://localhost:5173/storebg-cover bg-center flex items-center">
       <div className="flex flex-col items-center justify-evenly h-[70vh] border-2 w-[400px] mx-auto rounded-2xl border-green-200 bg-white shadow-lg">
         <div className="flex flex-col items-center">
           <i className="fa-solid fa-lock bg-green-700 px-3 py-2 text-4xl rounded-[50%] text-white"></i>

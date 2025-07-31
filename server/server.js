@@ -3,14 +3,15 @@ const path = require("path");
 const dotenv = require("dotenv");
 const bodyparser = require("body-parser");
 const cors = require("cors");
-const Auth = require("./routes/auth");
-const cart = require("./routes/cart");
-const orderHistory = require("./routes/orderHistory");
-const Wishlist = require("./routes/wishlist");
-const ProfileUpdate = require("./routes/profileupdate");
+const AuthRoute = require("./routes/auth");
+const cartRoute = require("./routes/cart");
+const orderHistoryRoute = require("./routes/orderHistory");
+const WishlistRoute = require("./routes/wishlist");
+const ProfileUpdateRoute = require("./routes/profileupdate");
+const placeOrderRoute = require("./routes/placeOrder.js");
 
 dotenv.config();
-require("./models/db");
+require("./connection.js");
 
 // App Setup
 const app = express();
@@ -20,19 +21,20 @@ const port = process.env.PORT;
 app.use(bodyparser.json());
 app.use(express.json());
 app.use(cors());
-app.use("/auth", Auth);
-app.use("/cart", cart);
-app.use("/orderHistory", orderHistory);
-app.use("/wishlist", Wishlist);
-app.use("/profileUpdate", ProfileUpdate);
 
+app.use("/auth", AuthRoute);
+app.use("/cart", cartRoute);
+app.use("/orderHistory", orderHistoryRoute);
+app.use("/wishlist", WishlistRoute);
+app.use("/profileUpdate", ProfileUpdateRoute);
+app.use("/order", placeOrderRoute);
 
 // Serve React Frontend
 app.use(express.static(path.resolve(__dirname, "../client/dist")));
 // Serve static folder for images
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// React Frontend Catch-All Route (MUST be after API routes)
+// React Frontend Catch-All Route
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
 });

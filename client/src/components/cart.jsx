@@ -73,7 +73,7 @@ const cart = () => {
   // post cart data to order
   const cartToOrder = async (myCart) => {
     try {
-      const url = `http://localhost:8000/cart/order/${user}`;
+      const url = `http://localhost:8000/order`;
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -94,7 +94,7 @@ const cart = () => {
 
   const fetchOrders = async () => {
     try {
-      const url = `http://localhost:8000/cart/order/${user}`;
+      const url = `http://localhost:8000/order/${user}`;
       const response = await fetch(url);
       const result = await response.json();
       setorder(result.orders);

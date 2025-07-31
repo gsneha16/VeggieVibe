@@ -12,7 +12,7 @@ import Dashboard from "./components/dashboard";
 import RefreshHandler from "./components/refreshHandler";
 import Welcome from "./components/welcome";
 import { useState } from "react";
-import TrialHome from "./components/trialHome";
+import Home from "./components/home";
 
 function App() {
   const [isAuthenticated, setisAuthenticated] = useState(false);
@@ -24,30 +24,23 @@ function App() {
   return (
     <>
       <Navbar />
-      <RefreshHandler setisAuthenticated={setisAuthenticated} />{" "}
+      <RefreshHandler setisAuthenticated={setisAuthenticated} />
       <Routes>
         <Route path="/" element={<Welcome />} />
-        <Route path="/home" element={<TrialHome />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/store" element={<Store />} />
         <Route path="/cart" element={<PrivateRoute element={<Cart />} />} />
+        <Route path="/orderHistory" element={<OrderHistory />} />
         <Route path="/orderConfirm" element={<OrderConfirm />} />
         <Route
           path="/wishlist"
           element={<PrivateRoute element={<Wishlist />} />}
         />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/orderHistory" element={<OrderHistory />} />
         <Route
           path="/dashboard"
           element={<PrivateRoute element={<Dashboard />} redirectTo="/" />}
-        />
-        <Route
-          path="/store"
-          element={
-            <>
-              <Store />
-            </>
-          }
         />
       </Routes>
     </>

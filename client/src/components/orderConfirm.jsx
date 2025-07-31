@@ -15,7 +15,7 @@ export default function App() {
 
   const fetchOrders = async () => {
     try {
-      const url = `http://localhost:8000/cart/order/${user}`;
+      const url = `http://localhost:8000/order/${user}`;
       const response = await fetch(url);
       const result = await response.json();
       setorders(result.orders);
@@ -32,9 +32,6 @@ export default function App() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
-    console.log(orders);
-
     try {
       const url = `http://localhost:8000/orderHistory`;
       const response = await fetch(url, {

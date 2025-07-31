@@ -149,7 +149,7 @@ const Dashboard = () => {
             />
             <NavCard to="/cart" icon={<FaShoppingCart />} label="Your Cart" />
             <NavCard to="/wishlist" icon={<FaHeart />} label="Your Wishlist" />
-            <NavCard to="/settings" icon={<FaCog />} label="Settings" />
+            <NavCard to="/dashboard" icon={<FaCog />} label="Settings" />
           </div>
         </div>
       </div>
