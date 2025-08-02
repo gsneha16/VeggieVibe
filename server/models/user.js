@@ -48,7 +48,7 @@ const UserSchema = new mongoose.Schema({
   myCart: [cartSchema], // List of added veggies
   wishlist: [WishlistSchema], // List of favorite veggies
   orders: [orderSchema], // List of ordered veggies
-  ordersHistory: [orderHistorySchema],
+  ordersHistory: [orderHistorySchema]
 });
 
 module.exports = mongoose.model("User", UserSchema);

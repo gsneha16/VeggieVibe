@@ -8,7 +8,8 @@ const cartRoute = require("./routes/cart");
 const orderHistoryRoute = require("./routes/orderHistory");
 const WishlistRoute = require("./routes/wishlist");
 const ProfileUpdateRoute = require("./routes/profileupdate");
-const placeOrderRoute = require("./routes/placeOrder.js");
+const placeOrderRoute = require("./routes/placeOrder");
+const AdminPanel = require("./routes/adminPanel.js")
 
 dotenv.config();
 require("./connection.js");
@@ -22,12 +23,15 @@ app.use(bodyparser.json());
 app.use(express.json());
 app.use(cors());
 
+app.use("/adminPanel",AdminPanel)
 app.use("/auth", AuthRoute);
 app.use("/cart", cartRoute);
 app.use("/orderHistory", orderHistoryRoute);
 app.use("/wishlist", WishlistRoute);
 app.use("/profileUpdate", ProfileUpdateRoute);
 app.use("/order", placeOrderRoute);
+
+
 
 // Serve React Frontend
 app.use(express.static(path.resolve(__dirname, "../client/dist")));

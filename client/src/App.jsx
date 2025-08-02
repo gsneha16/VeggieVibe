@@ -11,6 +11,8 @@ import Wishlist from "./components/wishlist";
 import Dashboard from "./components/dashboard";
 import RefreshHandler from "./components/refreshHandler";
 import Welcome from "./components/welcome";
+import Admin from "./components/admin";
+import AdminLogin from "./components/adminLogin"
 import { useState } from "react";
 import Home from "./components/home";
 
@@ -24,7 +26,9 @@ function App() {
   return (
     <>
       <Navbar />
+
       <RefreshHandler setisAuthenticated={setisAuthenticated} />
+
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/signin" element={<Signin />} />
@@ -41,6 +45,10 @@ function App() {
         <Route
           path="/dashboard"
           element={<PrivateRoute element={<Dashboard />} redirectTo="/" />}
+        />
+        <Route
+          path="/admin-panel"
+          element={<Admin />}
         />
       </Routes>
     </>
